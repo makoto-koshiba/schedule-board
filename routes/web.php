@@ -11,11 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    Route::get('登録', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
-Route::post('登録', 'Auth\RegisterController@register')->name('signup.post');
-Route::get('ログイン', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('ログイン', 'Auth\LoginController@login')->name('login.post');
-Route::get('ログイン', 'Auth\LoginController@logout')->name('logout.get');
+
+
+
+// 認証
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', 'SchedulesController@index');
+    Route::resource('users', 'UsersController');
+    Route::resource('schedules', 'SchedulesController');
+    
+    Route::resource('projects', 'ProjectsController');
+    Route::group(['prefix' => 'schedules/{id}'], function () {
+        Route::post('joint_user', 'JointsController@store')->name('user.joint');
+        Route::delete('unjoint_user', 'JointsController@destroy')->name('user.unjoint');
+       
+    });
 });
+
+
+

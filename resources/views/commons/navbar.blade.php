@@ -9,25 +9,30 @@
         
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
-            <ul class="navbar-nav">
-                @if (Auth::check())
+            
+                <ul class="navbar-nav">
+                <!--管理者の場合メンバーと案件にアクセス可能-->
+                  @if(Auth::check() && Auth::user()->admin_flag == true )
                     {{-- ユーザ一覧ページへのリンク --}}
-                    <li class="nav-item"><a href="#" class="nav-link">Users</a></li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            {{-- ユーザ詳細ページへのリンク --}}
-                            <li class="dropdown-item"><a href="#">My profile</a></li>
-                            <li class="dropdown-divider"></li>
-                            {{-- ログアウトへのリンク --}}
-                            <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
-                        </ul>
+                    <li class="nav-item">{!! link_to_route('users.index', 'メンバー', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('projects.index', '案件', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('schedules.index', '予定', [], ['class' => 'nav-link']) !!}</li>
+        
+                     {{-- ログアウトへのリンク --}}
+                　　<li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
+                </ul>
                     </li>
-                @else
-
-                {{-- ログインページへのリンク --}}
-                <li class="nav-item"><a href="#" class="nav-link">ログイン</a></li>
-                 @endif
+                　@elseif(Auth::check() && Auth::user()->admin_flag == false )
+                
+                　　<li class="nav-item">{!! link_to_route('projects.index', '案件', [], ['class' => 'nav-link']) !!}</li>
+               　　  <li class="nav-item">{!! link_to_route('schedules.index', '予定', [], ['class' => 'nav-link']) !!}</li>
+                
+                   {{-- ログアウトへのリンク --}}
+                    <li class="nav-item">{!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
+               　　 @else
+                   {{-- ログインページへのリンク --}}
+                    <li class="nav-item">{!! link_to_route('login.post', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
+                　 @endif
             </ul>
         </div>
     </nav>
