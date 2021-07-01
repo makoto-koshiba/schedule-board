@@ -1,0 +1,22 @@
+table.st-tbl2 {
+	text-align: left;
+	position: relative;
+	border-collapse: collapse; 
+}
+table.st-tbl2 th,
+table.st-tbl2 td{
+	padding: 1rem;
+	border: solid 1px #ddd;
+}
+table.st-tbl2 th {
+	background: white;
+	position: sticky;
+	top: 0;
+}
+.st-tbl2 thead th {
+  background: lightblue;
+  color: black;
+ 
+ 
+  
+}

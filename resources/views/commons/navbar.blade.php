@@ -1,4 +1,5 @@
 <header class="mb-4">
+    <div class="container">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         {{-- トップページへのリンク --}}
         <a class="navbar-brand" href="/">トップ</a>
@@ -11,7 +12,7 @@
             <ul class="navbar-nav mr-auto"></ul>
             
                 <ul class="navbar-nav">
-                <!--管理者の場合メンバーと案件にアクセス可能-->
+                {{--管理者の場合メンバーと案件にアクセス可能--}}
                   @if(Auth::check() && Auth::user()->admin_flag == true )
                     {{-- ユーザ一覧ページへのリンク --}}
                     <li class="nav-item">{!! link_to_route('users.index', 'メンバー', [], ['class' => 'nav-link']) !!}</li>

@@ -19,19 +19,18 @@
                     <!--プロジェクトをセレクトボックスで表示-->
                     {!! Form::select('project_id', $projects->pluck('title', 'id'), old('project_id'), ['placeholder' => '選択してください']) !!}
                 </div>
-    　　</div>
-                 
-                 <div class="form-group">
-                    {!! Form::label('content', 'メンバー:') !!}
-                 <div class="col-2">
-                      <!--ユーザーをチェックボックスで選択-->
-                 <div class="checkbox">
-                    @foreach ($users as $user)
-    　　　　　　　　　　　　{!! Form::checkbox('userIds[]', $user->id, false, ['class' => 'form-check-input']) !!} {{ $user->name }}
-　　　　　　　　　　@endforeach
-                </div>
-                </div>
 
+                 <div class="form-group row">
+                    {!! Form::label('content', 'メンバー:',['class'=> 'col-3']) !!}
+                    <div class="overflow-auto col-6" style="height:200px;">
+                      {{--ユーザーをチェックボックスで選択--}}
+                    @foreach ($users as $user)
+                    <div>
+                    {!! Form::checkbox('userIds[]', $user->id, false, []) !!} {{ $user->name }}
+                    </div>
+                    @endforeach
+                    </div>
+                 </div>
                 {!! Form::submit('作成', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>

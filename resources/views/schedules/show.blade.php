@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1> {{ $schedule->created_at->format('m/d') }} の詳細</h1>
+<h1> {{ $schedule->date }} の詳細</h1>
 
     <table class="table table-bordered">
         

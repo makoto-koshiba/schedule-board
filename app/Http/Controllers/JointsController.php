@@ -23,6 +23,10 @@ class JointsController extends Controller
         // 予定が idのユーザを紐付け解除する
         $schedule = Schedule::find($scheduleId);
         $schedule->unjoint_user($request->user_id);
+        $otherschedule = Schedule::where('date',$schedule->date)->first();
+        if(!is_null($otherschedule)){
+           $otherschedule->unjoint_user($request->user_id);
+        }
         // 前のURLへリダイレクトさせる
         return back();
     }

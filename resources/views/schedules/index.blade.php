@@ -9,8 +9,9 @@
 {!! link_to_route('schedules.index', '＜ 前の週',['startDay'=> $beforWeekDate]) !!}
     　　
 {!! link_to_route('schedules.index', '次の週 ＞',['startDay'=> $nextWeekDate]) !!}
-       
-        <table class="table table-bordered">
+
+         <div class="overflow-auto" style="width:1075px; height:500px;">
+        <table class="table table-bordered st-tbl1">
             <thead>
                 
                     <tr>
@@ -19,7 +20,6 @@
                               <th> {{ $aryDay[$i] }}</th>
                         @endfor
                     </tr>
-                     
                     <tr>
                          <th></th>
                          @for ($i = 0; $i <7; $i++)
@@ -31,7 +31,7 @@
             <tbody>
                          @foreach ($users as $user)
                     <tr>
-                            <td>{{ $user->name }}</td>
+                            <th>{{ $user->name }}</th>
                          @for ($i = 0; $i <7; $i++)
                      <td>
                          <!--ユーザーに紐付いたプロジェクト名を日付に合わせて表示する-->
@@ -44,8 +44,10 @@
                          @endforeach
             </tbody>
         </table>
+        </div>
     @endif
-     
+    
+    
        @if(Auth::check() && Auth::user()->admin_flag == true )
     {{-- 予定作成ページへのリンク --}}
     {!! link_to_route('schedules.create', '予定追加', [], ['class' => 'btn btn-primary']) !!}

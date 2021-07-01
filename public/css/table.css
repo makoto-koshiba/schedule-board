@@ -1,0 +1,52 @@
+table.st-tbl1{
+    width: 1075px;
+    height:500px;
+}
+
+.st-tbl1 thead th {
+  /* 縦スクロール時を固定 */
+  position: sticky;
+  border-color:white;
+  /* tbody内のセルより手前に表示する */
+  z-index: 1;
+}
+.st-tbl1 thead tr:nth-child(1) th {
+  top: 0;
+}
+.st-tbl1 thead tr:nth-child(2) th {
+  top:56px;
+}
+
+.st-tbl1 th:first-child {
+  /* 横スクロールを固定 */
+  position: sticky;
+  left: 0;
+  
+}
+.st-tbl1 thead th:first-child {
+  /* 一番左端のthead thが横スクロール時に隠れない様に */
+  z-index: 2;
+  
+}
+.st-tbl1 th,
+.st-tbl1 td{
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-weight: normal;
+}
+.st-tbl1 thead th {
+  background: lightblue;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  border-color:white;
+  
+}
+.st-tbl1 tbody th {
+  background: lightblue;
+  color: black;
+  padding: 10px 20px 10px 50px;
+  border-color:white;
+  
+  
+}

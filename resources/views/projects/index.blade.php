@@ -22,8 +22,7 @@
                     <td>{{ $project ->title }} </td>
                     <td>{{ $project ->content }}</td>
                     <td>{{ $project ->created_at->format('Y/m/d') }}</td>
-                    <td> 
-                   　　 @if(Auth::user()->admin_flag == true )
+                    <td> @if(Auth::user()->admin_flag == true )
                         <div class="d-flex flex-row bd-highlight mb-6"> 
                         {!! link_to_route('projects.edit', '編集', ['project' => $project->id], ['class' => 'btn btn-primary']) !!}
                       {{-- 案件削除フォーム --}}
@@ -37,12 +36,14 @@
             </tbody>
         </table>
     @endif
-    <!--ページネーションへのリンク-->
+    
+    {{-- ページネーションのリンク --}}
     {{ $projects->links() }}
     
     @if(Auth::check() && Auth::user()->admin_flag == true )
-    　　{{-- プロジェクト作成ページへのリンク --}}
-    　　{!! link_to_route('projects.create', '案件作成', [], ['class' => 'btn btn-primary']) !!}
+    {{-- プロジェクト作成ページへのリンク --}}
+    {!! link_to_route('projects.create', '案件作成', [], ['class' => 'btn btn-primary']) !!}
+    
     @endif
-
+    
 @endsection

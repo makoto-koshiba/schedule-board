@@ -24,9 +24,7 @@ class Schedule extends Model
     {
         // すでに紐付けしているかの確認
         $exist = $this->is_joint_user($userId);
-        // 対象が自分自身かどうかの確認
-        
-
+       
         if ($exist) {
             // 紐付けしていれば何もしない
             return false;

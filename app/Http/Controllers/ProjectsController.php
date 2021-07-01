@@ -15,7 +15,7 @@ class ProjectsController extends Controller
     public function index()
     {
         //案件一覧を取得
-        $projects = Project::all();
+        $projects = Project::paginate(10);
 
         // 案件一覧ビューでそれを表示
         return view('projects.index', [

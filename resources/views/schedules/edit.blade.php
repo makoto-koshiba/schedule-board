@@ -26,17 +26,16 @@
             <th>メンバー</th>
             <td>
                 <div class="overflow-auto" style="width:300px; height:300px;">
-                @foreach($users as $user)
-            　　<div class="d-flex flex-row bd-highlight mb-6">
+                    @foreach($users as $user)
+                    <div class="d-flex flex-row bd-highlight mb-6">
                 <div class="p-2 bd-highlight">
                     {{ $user->name }}
                 </div>
-                       
                 <div class="p-2 bd-highlight">
                     @include('joint_user.joint_button')
                 </div>
-                </div>  
-                    @endforeach 
+                </div>
+                @endforeach 
             </td>
         </tr>
     </table>
