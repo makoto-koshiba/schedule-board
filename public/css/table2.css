@@ -8,11 +8,11 @@
    display: inline; 
 }
 
-.st-tbl1{
+.st-tbl2{
   margin: 0;
    font-size: auto;
 }
-.st-tbl1 thead th {
+.st-tbl2 thead th {
   /* 縦スクロール時を固定 */
   position: sticky;
   border-color:white;
@@ -21,27 +21,27 @@
   padding:0;
 }
 
-.st-tbl1 thead tr:nth-child(1) th {
+.st-tbl2 thead tr:nth-child(1) th {
   top: 0;
-}.st-tbl1 thead tr:nth-child(2) th {
+}.st-tbl2 thead tr:nth-child(2) th {
   top:19px;
-}.st-tbl1 thead tr:nth-child(3) th {
+}.st-tbl2 thead tr:nth-child(3) th {
   top:38px;
 }
 
-.st-tbl1 th:first-child {
+.st-tbl2 th:first-child {
   /* 横スクロールを固定 */
   position: sticky;
   left: 0;
   
 }
-.st-tbl1 thead th:first-child {
+.st-tbl2 thead th:first-child {
   /* 一番左端のthead thが横スクロール時に隠れない様に */
   z-index: 2;
   
 }
-.st-tbl1 th,
-.st-tbl1 td{
+.st-tbl2 th,
+.st-tbl2 td{
   line-height: 1.2em;
   border-collapse: collapse;
   border-spacing: 0;
@@ -49,14 +49,14 @@
   padding:0;
 
 }
-.st-tbl1 thead th {
+.st-tbl2 thead th {
   background:aliceblue;
   color: black;
   text-align: center;
   border-color:silver;
   
 }
-.st-tbl1 tbody th {
+.st-tbl2 tbody th {
   
   color: black;
   padding: 0;
@@ -66,7 +66,7 @@
   height:42px;
 }
 
-.st-tbl1 tbody td {
+.st-tbl2 tbody td {
   
   color: black;
   padding: 0;
@@ -74,6 +74,6 @@
   border-color:silver;
   background:white;
   /*height:42px;*/
-  font-size: 13px;
-  width: calc(100% / 33);
+  font-size: 14px;
+  width: calc(100% / 16);
 }

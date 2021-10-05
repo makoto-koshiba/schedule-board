@@ -2,10 +2,10 @@
 
 @section('content')
 
- <h1>{{ $schedule->project->title }} の編集</h1>
+ <h3>{{ $schedule->project->title }} の編集</h3>
 
      
-    <table class="table table-bordered">
+    <table class="table-bordered">
         
          <tr>
             <th>日付</th>
@@ -16,12 +16,26 @@
             <th>案件</th>
             <td>{{ $schedule->project->title }}</td>
         </tr>
-        
         <tr>
-            <th>内容</th>
-            <td>{{ $schedule->project->content }}</td>
+            <th>現場住所</th>
+            <td>{{ $schedule->project->address }}</td>
+        </tr> 
+        <tr>
+            <th>顧客名</th>
+            <td>{{ $schedule->project->client->name }}</td>
         </tr>
-        
+        <tr>
+            <th>顧客担当者</th>
+            <td>{{ $schedule->project->personnal }}</td>
+        </tr>
+        <tr>
+            <th>連絡先</th>
+            <td>{{ $schedule->project->contact }}</td>
+        </tr>
+        <tr>
+            <th>職長</th>
+            <td>{{ $schedule->project->leader }}</td>
+        </tr> 
         <tr>
             <th>メンバー</th>
             <td>

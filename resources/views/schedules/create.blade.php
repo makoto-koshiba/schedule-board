@@ -3,35 +3,39 @@
 @section('content')
 
 
-<h1>新規予定作成</h1>
+<h3>新規予定作成</h3>
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-4">
             {!! Form::model($schedule, ['route' => 'schedules.store']) !!}
 
                 <div class="form-group">
-                    {!! Form::label('date', '日付:') !!}
-                    {{Form::date('date', \Carbon\Carbon::now(), ['class'=>'date'])}}
+                    {!! Form::label('date', '開始日:') !!}
+                    {{Form::input('date','startDay', \Carbon\Carbon::now(), ['class'=>'date'])}}
+                </div>
+                 <div class="form-group">
+                    {!! Form::label('date', '終了日:') !!}
+                    {{Form::input('date','endDay', \Carbon\Carbon::now(), ['class'=>'date'])}}
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('content', '内容:') !!}
+                    {!! Form::label('content', '案件:') !!}
                     <!--プロジェクトをセレクトボックスで表示-->
                     {!! Form::select('project_id', $projects->pluck('title', 'id'), old('project_id'), ['placeholder' => '選択してください']) !!}
                 </div>
 
-                 <div class="form-group row">
-                    {!! Form::label('content', 'メンバー:',['class'=> 'col-3']) !!}
+                 <div class="form-group">
+                    {!! Form::label('content', 'メンバー:',['class'=> 'col-4']) !!}
                     <div class="overflow-auto col-6" style="height:200px;">
                       {{--ユーザーをチェックボックスで選択--}}
                     @foreach ($users as $user)
                     <div>
-                    {!! Form::checkbox('userIds[]', $user->id, false, []) !!} {{ $user->name }}
+                    {!! Form::checkbox('userIds[]', $user->id, ($user->id == $userId) ? true : false, []) !!} {{ $user->name }}
                     </div>
                     @endforeach
                     </div>
                  </div>
-                {!! Form::submit('作成', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('作成', ['class' => 'btn btn-success btn-sm']) !!}
             {!! Form::close() !!}
         </div>
     </div>

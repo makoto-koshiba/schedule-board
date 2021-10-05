@@ -8,7 +8,7 @@ class Schedule extends Model
 {
     protected $fillable = ['date'];
 
-    // ユーザーとプロジェクトの関係定義
+    // スケジュールとプロジェクトの関係定義
     public function project()
     {
         return $this->belongsTo(Project::class);

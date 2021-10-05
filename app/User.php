@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','admin_flag',
+        'name', 'email', 'password','admin_flag','account',
     ];
 
     /**
@@ -40,5 +40,11 @@ class User extends Authenticatable
     public function schedules()
     {
         return $this->belongsToMany(Schedule::class, 'schedule_user', 'user_id', 'schedule_id')->withTimestamps();
+    }
+    
+    // ユーザーとプロジェクトの1：多を定義
+     public function projects()
+    {
+        return $this->hasMany(Project::class);
     }
 }

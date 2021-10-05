@@ -2,24 +2,25 @@
 
 @section('content')
     <div class="text-center">
-        <h1>ログイン</h1>
+        <h3>ログイン</h3>
     </div>
-
+    
     <div class="row">
-        <div class="col-sm-6 offset-sm-3">
+        <div class="col-sm-2 offset-sm-5">
 
             {!! Form::open(['route' => 'login.post']) !!}
                 <div class="form-group">
-                    {!! Form::label('email', 'メール') !!}
-                    {!! Form::email('email', null, ['class' => 'form-control']) !!}
+                    {!! Form::label('account', 'アカウント') !!}
+                    {!! Form::text('account', null, ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('password', 'パスワード') !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
-
-                {!! Form::submit('ログイン', ['class' => 'btn btn-primary btn-block']) !!}
+                <div class="text-center">
+                {!! Form::submit('ログイン', ['class' => 'btn btn-primary btn-inline']) !!}
+                </div>
             {!! Form::close() !!}
         </div>
     </div>

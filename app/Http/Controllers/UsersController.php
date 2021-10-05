@@ -35,6 +35,30 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->account = $request->account;
+        $user->save();
+
+        // ユーザー一覧へリダイレクトさせる
+        return redirect()->route('users.index');
+    }
+    
+    public function edit($id)
+    {
+        // idの値でユーザーを検索して取得
+        $user = User::findOrFail($id);
+        // ユーザー編集ビューでそれを表示
+        return view('users.edit', [
+            'user' => $user,
+        ]);
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->account = $request->account;
         $user->save();
 
         // ユーザー一覧へリダイレクトさせる
