@@ -19,7 +19,7 @@
                 </div>
                  <div class="form-group">
                     {!! Form::label('client_id', '顧客名:') !!}
-                    {!! Form::select('client_id', $clients->pluck('name', 'id'), old('client_id'), ['placeholder' => '選択してください']) !!}
+                    {!! Form::select('client_id', $clients->pluck('name', 'id'), old('client_id'), ['placeholder' => '選択してください' , 'class' => 'form-control']) !!}
                 </div> 
                 
                  <div class="form-group">
@@ -32,7 +32,7 @@
                 </div>
                  <div class="form-group">
                     {!! Form::label('user_id', '職長:') !!}
-                    {!! Form::select('user_id', $users->pluck('name', 'id'), old('user_id'), ['placeholder' => '選択してください']) !!}
+                    {!! Form::select('user_id', $users->pluck('name', 'id'), old('user_id'), ['placeholder' => '選択してください','class' => 'form-control']) !!}
                 </div>
 
                 {!! Form::submit('作成', ['class' => 'btn btn-primary']) !!}
